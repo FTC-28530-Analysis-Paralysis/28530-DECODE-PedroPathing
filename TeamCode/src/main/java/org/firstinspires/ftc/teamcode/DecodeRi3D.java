@@ -242,7 +242,6 @@ public class DecodeRi3D extends OpMode {
             }
         }
 
-        if (gamepad1.aWasPressed())
 
         if (gamepad1.dpadUpWasPressed()) {
             switch (launcherDistance) {
