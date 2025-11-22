@@ -32,7 +32,7 @@ public class KalispellAuto extends OpMode{
         // Drive forward for 2 seconds
         while (runtime.seconds() < 2) {
 
-            straferDrive.drive(.2, 0, 0);
+            straferDrive.drive(.7, 0, 0);
             telemetry.addData("Status", "Autonomous Running");
             telemetry.update();
 
