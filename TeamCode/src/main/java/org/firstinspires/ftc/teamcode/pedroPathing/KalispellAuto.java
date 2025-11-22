@@ -13,7 +13,7 @@ import com.qualcomm.robotcore.util.ElapsedTime;
 
 @Autonomous(name="KalispellAuto", group="01 Kalispell")
 public class KalispellAuto extends OpMode{
-    HardwareMap hwMap = new HardwareMap();
+    StraferDrive straferDrive = new StraferDrive();
 //    IntakeHardware intakeHardware = new IntakeHardware();
 //    MecanumHardware mecanumHardware = new MecanumHardware();
 //    TransferHardware transferHardware = new TransferHardware();
@@ -21,10 +21,7 @@ public class KalispellAuto extends OpMode{
 
     @Override
     public void init(){
-        hwMap.init(hardwareMap);
-//        intakeHardware.init(hardwareMap);
-//        mecanumHardware.init(hardwareMap);
-//        transferHardware.init(hardwareMap);
+        straferDrive.init(hardwareMap);
         telemetry.addData("Status", "Initialized");
         telemetry.update();
     }
@@ -35,7 +32,7 @@ public class KalispellAuto extends OpMode{
         // Drive forward for 2 seconds
         while (runtime.seconds() < 2) {
 
-            hwMap.drive(.2, 0, 0);
+            straferDrive.drive(.2, 0, 0);
             telemetry.addData("Status", "Autonomous Running");
             telemetry.update();
 
@@ -53,11 +50,7 @@ public class KalispellAuto extends OpMode{
 
     @Override
     public void stop() {
-        hwMap.stop();
-//        transferHardware.stop();
-//        intakeHardware.stop();
-//        launcherHardware.stop();
-
+        straferDrive.stop();
     }
 
 }
