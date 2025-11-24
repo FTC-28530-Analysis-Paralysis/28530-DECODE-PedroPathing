@@ -28,23 +28,18 @@ public class KalispellAuto extends OpMode{
 
     @Override
     public void start() {
-
-        // Drive forward for 2 seconds
-        while (runtime.seconds() < 2) {
-
-            straferDrive.drive(.7, 0, 0);
-            telemetry.addData("Status", "Autonomous Running");
-            telemetry.update();
-
-            if(runtime.seconds()> 2){
-                break;
-            }
-        }
+        runtime.reset();
     }
 
     @Override
     public void loop() {
-        telemetry.addData("Status", "Autonomous Finished");
+        if (runtime.seconds() < 2) {
+            straferDrive.drive(.7, 0, 0);
+            telemetry.addData("Status", "Autonomous Running");
+        } else {
+            straferDrive.stop();
+            telemetry.addData("Status", "Autonomous Finished");
+        }
         telemetry.update();
     }
 
